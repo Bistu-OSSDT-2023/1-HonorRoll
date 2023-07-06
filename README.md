@@ -12,5 +12,9 @@ MIT
 教职工通过本系统查看、修改自己的信息，对工作部门及薪资进行确认，管理员可查看教职工信息，进行修改及确认。
 # 用户界面：
 ![48fddd532aa1cb53028c676da8f204e](https://github.com/Bistu-OSSDT-2023/1-HonorRoll/assets/138182938/56c72411-edd7-4dd1-87c1-e4ea92c3ac2a)
+![f832a0bf327395710f4e71ef387f607](https://github.com/Bistu-OSSDT-2023/1-HonorRoll/assets/138182938/4960e2f5-a0db-43a8-bdb9-fd14ce62a74d)
+![6778b9a37ea5bc36924b4a124181549](https://github.com/Bistu-OSSDT-2023/1-HonorRoll/assets/138182938/21974dd3-75c4-4deb-9260-a99ac0dfb225)
+
+
 
 
