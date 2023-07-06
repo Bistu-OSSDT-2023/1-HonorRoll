@@ -1,0 +1,10 @@
+CREATE TABLE emp (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    NAME VARCHAR(50) NOT NULL,
+    age INT,
+    gender VARCHAR(6),
+    department VARCHAR(50),
+    salary DOUBLE(10, 2),
+    phone VARCHAR(11),
+    position VARCHAR(50)
+);

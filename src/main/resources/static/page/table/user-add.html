@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DBEmp</title>
+
+    <link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-form layuimini-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label required">用户名</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" lay-verify="required"
+                   placeholder="请输入用户名" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">年龄</label>
+        <div class="layui-input-block">
+            <input type="text" name="age" lay-verify="required"
+                   placeholder="请输入年龄" value="" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">性别</label>
+        <div class="layui-inline">
+            <select name="gender" lay-verify="required">
+                <option value="male" selected>男</option>
+                <option value="female">女</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">部门</label>
+        <div class="layui-input-block">
+            <input type="text" name="department" lay-verify="required"
+                   placeholder="请输入部门" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">职位</label>
+        <div class="layui-input-block">
+            <input type="text" name="position" lay-verify="required"
+                   placeholder="请输入职位" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">薪资</label>
+        <div class="layui-input-block">
+            <input type="text" name="salary" lay-verify="required"
+                   placeholder="请输入薪资" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">电话</label>
+        <div class="layui-input-block">
+            <input type="text" name="phone" lay-verify="required"
+                   placeholder="请输入电话" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="address" lay-verify="required"
+                   placeholder="请输入地址" value="" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+        </div>
+    </div>
+</div>
+<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script>
+    layui.use(['form'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            $ = layui.$;
+
+        //监听提交
+        form.on('submit(saveBtn)', function (data) {
+            var index = layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            }, function () {
+                $.ajax({
+                    url: "http://localhost:8887/emp/save",
+                    type: "POST",
+                    data: data.b````````````````````````````````````````,
+                    success: function (res) {
+                        // 请求成功后的回调函数
+                        if (res.code != 200) {
+                            layer.msg(res.msg);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        parent.layer.msg(xhr.responseJSON.msg);
+                    }
+                });
+                // 关闭弹出层
+                layer.close(index);
+
+                var iframeIndex = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(iframeIndex);
+
+            });
+
+            return false;
+        });
+
+    });
+</script>
+</body>
+</html>
